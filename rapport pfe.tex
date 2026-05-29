@@ -62,6 +62,11 @@
 \fancyhf{}
 \fancyfoot[R]{\thepage}
 \renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[R]{\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+}
 
 \titleformat{\chapter}[display]
   {\bfseries\Large\color{vinciBlue}}
@@ -176,23 +181,33 @@
 \setlength{\parskip}{0pt}
 
 \noindent
-\begin{minipage}[t]{0.30\textwidth}
+\begin{minipage}[t]{0.25\textwidth}
     \vspace{0pt}
-    \raggedright
-    \includegraphics[width=3.5cm]{pics/ensam.png}
+    \centering
+    \includegraphics[width=3.9cm]{pics/ensam.png}
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.5\textwidth}
+\begin{minipage}[t]{0.42\textwidth}
+    \vspace{35pt}
+    \centering
+    {\fontsize{12}{14}\selectfont Royaume du Maroc\par}
+    \vspace{0.08cm}
+    {\fontsize{12}{14}\selectfont Université Mohammed V de Rabat\par}
+    \vspace{0.08cm}
+    {\fontsize{12}{14}\selectfont École Nationale Supérieure d'Arts et Métiers\par}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.25\textwidth}
     \vspace{0pt}
-    \raggedleft
-    \includegraphics[width=6cm]{pics/entreprise_vinci_building_solutions.png}
+    \centering
+    \includegraphics[width=4cm]{pics/um5_rabat.png}
 \end{minipage}
 
-\vspace{2cm}
+\vspace{1.8cm}
 
 {\fontsize{19}{23}\selectfont\bfseries RAPPORT DE PROJET DE FIN D'ÉTUDES\par}
 
-\vspace{0.85cm}
+\vspace{0.55cm}
 
 {\fontsize{12}{15}\selectfont Présenté pour obtenir le titre de :\par}
 \vspace{0.15cm}
@@ -212,13 +227,19 @@ pour l'automatisation des réservations structurelles\\[0.16cm]
 et l'intégration BIM--IoT appliquée à la\\[0.16cm]
 supervision technique des bâtiments\par}
 
-\vspace{0.85cm}
+\vspace{0.55cm}
+
+{\fontsize{12}{15}\selectfont Société d'accueil : \textbf{VINCI Energies Building Solutions}\par}
+\vspace{0.18cm}
+\includegraphics[width=7cm]{pics/entreprise_vinci_building_solutions.png}
+
+\vspace{0.55cm}
 
 {\fontsize{12}{15}\selectfont\bfseries Réalisé par :\par}
 \vspace{0.10cm}
 {\fontsize{17}{21}\selectfont\bfseries Badr AZIZI\par}
 
-\vspace{0.80cm}
+\vspace{0.50cm}
 
 {\fontsize{12}{15}\selectfont\bfseries Encadré par :\par}
 \vspace{0.20cm}
@@ -227,10 +248,10 @@ supervision technique des bâtiments\par}
 \textbf{M. ATMAN JBARI} &
 Encadrant académique, ENSAM Rabat \\[0.18cm]
 \textbf{Mme Nouhaila LAFDIL} &
-Encadrante industrielle, VINCI Energies -- CEGELEC \\
+Encadrante industrielle, VINCI Energies Building Solutions \\
 \end{tabular}
 
-\vspace{0.45cm}
+\vspace{0.30cm}
 
 {\fontsize{12}{15}\selectfont\bfseries Soutenu le 15/06/2026 devant le jury :\par}
 
@@ -260,7 +281,7 @@ Encadrante industrielle, VINCI Energies -- CEGELEC \\
 \begin{longtable}{>{\bfseries}p{5.0cm}p{9.5cm}}
 Nom et prénom du stagiaire : & Badr AZIZI \\
 Intitulé du travail : & Développement d'une solution BIM intelligente pour l'automatisation des réservations structurelles et l'intégration BIM--IoT appliquée à la supervision technique des bâtiments \\
-Entreprise d'accueil : & VINCI Energies -- CEGELEC \\
+Entreprise d'accueil : & VINCI Energies Building Solutions \\
 Entité d'accueil : & Cellule BIM / BIM\&SYN -- BE Fluides, BIM et Synthèse \\
 Établissement : & École Nationale Supérieure d'Arts et Métiers de Rabat \\
 Période du PFE : & Année universitaire 2025--2026 \\
@@ -276,7 +297,7 @@ Rédiger les remerciements personnalisés avec les noms définitifs.
 
 \chapter*{Résumé}
 \addcontentsline{toc}{chapter}{Résumé}
-Ce mémoire présente les travaux réalisés dans le cadre d'un projet de fin d'études au sein de VINCI Energies -- CEGELEC. Le travail s'articule autour de trois contributions complémentaires : la participation à la modélisation BIM du projet C2R, le développement d'un plugin Revit nommé RESBIM pour l'automatisation du traitement des réservations structurelles, et la mise en œuvre d'une intégration BIM--IoT basée sur ESP32, MQTT, Node-RED et Revit pour la supervision technique des bâtiments.
+Ce mémoire présente les travaux réalisés dans le cadre d'un projet de fin d'études au sein de VINCI Energies Building Solutions. Le travail s'articule autour de trois contributions complémentaires : la participation à la modélisation BIM du projet C2R, le développement d'un plugin Revit nommé RESBIM pour l'automatisation du traitement des réservations structurelles, et la mise en œuvre d'une intégration BIM--IoT basée sur ESP32, MQTT, Node-RED et Revit pour la supervision technique des bâtiments.
 
 Le besoin principal identifié concerne le traitement des réservations structurelles dans les projets BIM multidisciplinaires. Le processus classique repose sur la détection des conflits, l'analyse manuelle, la création des réservations dans Revit, puis leur vérification et leur suivi. Ce workflow devient rapidement chronophage lorsque le nombre de traversées MEP augmente et peut générer des erreurs de dimensions, de niveaux, de support, de statut ou de traçabilité.
 
@@ -286,7 +307,7 @@ La solution RESBIM vise à automatiser la détection, la génération, le dimens
 
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
-This final-year project presents the work carried out at VINCI Energies -- CEGELEC. The project is structured around three complementary contributions: participation in the BIM modelling of the C2R project, the development of a Revit plugin named RESBIM for the automation of structural openings, and the implementation of a BIM--IoT integration based on ESP32, MQTT, Node-RED and Revit for technical building supervision.
+This final-year project presents the work carried out at VINCI Energies Building Solutions. The project is structured around three complementary contributions: participation in the BIM modelling of the C2R project, the development of a Revit plugin named RESBIM for the automation of structural openings, and the implementation of a BIM--IoT integration based on ESP32, MQTT, Node-RED and Revit for technical building supervision.
 
 The main identified need concerns the handling of structural openings in multidisciplinary BIM projects. The conventional workflow relies on clash detection, manual analysis, reservation creation in Revit, and follow-up through views, parameters and schedules. This process becomes time-consuming and may lead to errors in dimensions, levels, host elements, status and traceability.
 
@@ -328,7 +349,7 @@ ESP32 & Microcontrôleur Wi-Fi/Bluetooth utilisé pour la communication IoT \\
 \addcontentsline{toc}{section}{Contexte général}
 Les projets de bâtiment deviennent de plus en plus complexes en raison de la multiplication des disciplines techniques, de la réduction des délais d'exécution et de l'augmentation des exigences de qualité. Dans ce contexte, le Building Information Modeling constitue un support essentiel pour la modélisation, la coordination, la synthèse et la gestion de l'information entre les intervenants.
 
-Au sein de VINCI Energies -- CEGELEC, la cellule BIM \& Synthèse intervient dans un environnement où les maquettes architecture, structure, fluides, CFO, CFA et synthèse doivent être coordonnées afin de limiter les conflits avant l'exécution. Les réseaux techniques traversent fréquemment les voiles et les dalles, ce qui nécessite la création de réservations structurelles correctement dimensionnées, positionnées, vérifiées et traçables.
+Au sein de VINCI Energies Building Solutions, la cellule BIM \& Synthèse intervient dans un environnement où les maquettes architecture, structure, fluides, CFO, CFA et synthèse doivent être coordonnées afin de limiter les conflits avant l'exécution. Les réseaux techniques traversent fréquemment les voiles et les dalles, ce qui nécessite la création de réservations structurelles correctement dimensionnées, positionnées, vérifiées et traçables.
 
 \section*{Positionnement du PFE}
 \addcontentsline{toc}{section}{Positionnement du PFE}
@@ -368,7 +389,7 @@ Le rapport est structuré en sept chapitres. Le premier présente l'organisme d'
 
 \section{Introduction}
 
-Ce chapitre présente le cadre industriel dans lequel s'inscrit le projet de fin d'études. Il introduit d'abord VINCI Energies en tant que groupe international spécialisé dans les métiers de l'énergie, des infrastructures et du bâtiment, puis l'entité d'accueil CEGELEC / VINCI Building Solutions. Il présente ensuite la cellule BIM \& Synthèse, qui constitue l'environnement direct du PFE, ainsi que les missions confiées durant le stage.
+Ce chapitre présente le cadre industriel dans lequel s'inscrit le projet de fin d'études. Il présente d'abord le groupe VINCI et sa branche VINCI Energies, puis l'entité d'accueil VINCI Energies Building Solutions Maroc. Il précise ensuite le rôle de la cellule BIM \& Synthèse, qui constitue l'environnement direct du PFE, ainsi que les missions confiées durant le stage.
 
 L'objectif de ce chapitre est de situer le projet dans son contexte professionnel afin de montrer la cohérence entre les besoins de l'entreprise, les enjeux de coordination BIM et le développement d'une solution d'automatisation nommée RESBIM.
 
@@ -389,7 +410,7 @@ Dans le contexte actuel de transformation numérique et de transition énergéti
 
 VINCI Energies dispose d'une présence internationale importante. Cette implantation permet au groupe d'intervenir sur des projets variés, allant des infrastructures énergétiques aux bâtiments techniques, en passant par l'industrie, les réseaux de communication et les solutions numériques.
 
-Au Maroc, VINCI Energies intervient à travers plusieurs entités spécialisées, dont CEGELEC. Cette présence locale permet de répondre aux besoins des projets nationaux tout en bénéficiant des méthodes, standards et retours d'expérience du groupe.
+Au Maroc, VINCI Energies intervient à travers plusieurs entités spécialisées. Cette présence locale permet de répondre aux besoins des projets nationaux tout en bénéficiant des méthodes, standards et retours d'expérience du groupe.
 
 \begin{figure}[H]
     \centering
@@ -422,29 +443,29 @@ Cette diversité explique l'importance d'une démarche BIM structurée. En effet
 \end{figure}
 
 % ------------------------------------------------------------
-\section{Présentation de CEGELEC Maroc}
+\section{Présentation de VINCI Energies Building Solutions Maroc}
 
-CEGELEC Maroc est l'entité d'accueil du présent projet de fin d'études. Elle intervient dans la conception, la réalisation et l'intégration des lots techniques dans les bâtiments et infrastructures. Ses domaines d'intervention couvrent notamment les installations électriques, les courants forts, les courants faibles, les fluides, le CVC, la plomberie, la sûreté, la sécurité incendie, les systèmes de contrôle et la synthèse technique.
+VINCI Energies Building Solutions Maroc constitue l'entité d'accueil du présent projet de fin d'études. Elle intervient dans la conception, la réalisation et l'intégration des lots techniques dans les bâtiments et infrastructures. Ses domaines d'intervention couvrent notamment les installations électriques, les courants forts, les courants faibles, les fluides, le CVC, la plomberie, la sûreté, la sécurité incendie, les systèmes de contrôle et la synthèse technique.
 
 Dans ce type d'environnement, la coordination entre les disciplines est essentielle. Les réseaux techniques doivent cohabiter avec la structure et l'architecture, ce qui impose une organisation rigoureuse des maquettes, des vues de contrôle et des échanges entre intervenants. C'est dans ce cadre que s'inscrit le besoin d'automatiser certaines tâches répétitives, notamment le traitement des réservations structurelles.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.76\textwidth]{pics/entreprise_vinci_building_solutions.png}
-    \caption{Positionnement de l'entité d'accueil dans VINCI Building Solutions}
+    \includegraphics[width=0.58\textwidth]{pics/entreprise_vinci_building_solutions.png}
+    \caption{Positionnement de l'entité d'accueil dans VINCI Energies Building Solutions}
 \end{figure}
 
 % ------------------------------------------------------------
 \section{Engagement qualité, sécurité et environnement}
 
-Les projets réalisés par CEGELEC s'inscrivent dans une démarche qualité, sécurité et environnement. Cette démarche vise à assurer la conformité des livrables, la maîtrise des risques, la sécurité des équipes et la fiabilité des installations techniques.
+Les projets réalisés par VINCI Energies Building Solutions s'inscrivent dans une démarche qualité, sécurité et environnement. Cette démarche vise à assurer la conformité des livrables, la maîtrise des risques, la sécurité des équipes et la fiabilité des installations techniques.
 
 Dans le cadre du BIM, cette exigence se traduit par la nécessité de produire des maquettes propres, structurées, coordonnées et exploitables. Les objets BIM doivent être correctement renseignés, les vues doivent être lisibles, et les informations doivent être traçables. Ces exigences sont directement liées au développement de RESBIM, dont l'objectif est de fiabiliser le traitement des réservations et d'améliorer la qualité du processus de coordination.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.82\textwidth]{pics/charte_qse_cegelec.png}
-    \caption{Charte qualité, sécurité et environnement de CEGELEC}
+    \includegraphics[width=0.58\textwidth]{pics/charte_qse_cegelec.png}
+    \caption{Charte qualité, sécurité et environnement de l'entité d'accueil}
 \end{figure}
 
 \begin{figure}[H]
@@ -560,7 +581,7 @@ Rédaction et préparation soutenance & Mai--juin 2026 & Structuration du rappor
 % ------------------------------------------------------------
 \section{Conclusion}
 
-Ce chapitre a permis de présenter l'environnement industriel du projet, depuis VINCI Energies jusqu'à la cellule BIM \& Synthèse. Les activités de CEGELEC, la diversité des lots techniques et les exigences de coordination justifient pleinement le développement d'une solution BIM dédiée à l'automatisation des réservations structurelles.
+Ce chapitre a permis de présenter l'environnement industriel du projet, depuis le groupe VINCI jusqu'à la cellule BIM \& Synthèse de VINCI Energies Building Solutions. La diversité des lots techniques, l'exigence de coordination entre disciplines et la nécessité de fiabiliser les livrables BIM justifient pleinement le développement d'une solution dédiée à l'automatisation des réservations structurelles.
 
 Le chapitre suivant présente la problématique générale et l'analyse du besoin, en mettant en évidence les limites du processus actuel et les objectifs fonctionnels attendus de RESBIM.
 % ============================================================
@@ -577,7 +598,7 @@ Dans les projets BIM multidisciplinaires, les réseaux techniques MEP traversent
 Une réservation n'est pas uniquement un objet géométrique. Elle doit contenir des informations exploitables : forme, dimensions, niveau, support, lot, numéro, statut, commentaire, origine du réseau et état de validation. Elle constitue ainsi un objet de synthèse entre plusieurs intervenants : BIM coordinateur, modèleur MEP, structure, chantier et responsables de validation.
 
 \insertfigure[0.82\textwidth]{pics/fig_reservation_principe.png}{Principe d'une réservation structurelle dans la coordination MEP--Structure}
-\insertfigure[0.82\textwidth]{pics/fig_conflit_vers_reservation.png}{Transformation d'un conflit MEP--Structure en objet de réservation}
+\insertfigure[0.82\textwidth]{pics/fig_conflit_vers_reservation.png.jpg}{Transformation d'un conflit MEP--Structure en objet de réservation}
 
 \section{Processus actuel de traitement des réservations}
 Le processus classique repose sur une chaîne de travail composée de plusieurs étapes :
@@ -591,7 +612,43 @@ Le processus classique repose sur une chaîne de travail composée de plusieurs 
     \item suivi par vues, commentaires, nomenclatures ou échanges entre intervenants.
 \end{enumerate}
 
-\insertfigure[0.92\textwidth]{pics/processus_actuel_reservations.png}{Processus actuel de traitement des réservations structurelles}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=0.8cm and 0.8cm,
+    process/.style={
+        draw=vinciBlue,
+        rounded corners=4pt,
+        thick,
+        align=center,
+        fill=lightGray,
+        text width=0.24\textwidth,
+        minimum height=1.35cm,
+        font=\small
+    },
+    arrow/.style={
+        -{Latex[length=2.8mm,width=2mm]},
+        thick,
+        draw=vinciBlue
+    }
+]
+\node[process] (a) {1. MODELISATION\\MEP};
+\node[process, right=of a] (b) {2. LIAISON\\STRUCTURE};
+\node[process, right=of b] (c) {3. DETECTION DES\\CONFLITS};
+\node[process, below=of c] (d) {4. ANALYSE\\BIM};
+\node[process, left=of d] (e) {5. CREATION DES\\RESERVATIONS};
+\node[process, left=of e] (f) {6. VERIFICATION\\ET CONTROLE};
+\node[process, below=of b] (g) {7. SUIVI ET\\COORDINATION};
+
+\draw[arrow] (a) -- (b);
+\draw[arrow] (b) -- (c);
+\draw[arrow] (c) -- (d);
+\draw[arrow] (d) -- (e);
+\draw[arrow] (e) -- (f);
+\draw[arrow] (f.east) -- ++(0.35,0) |- (g.west);
+\end{tikzpicture}
+\caption{Processus actuel de traitement des réservations structurelles}
+\end{figure}
 
 \section{Limites du processus existant}
 Le processus existant présente plusieurs limites :
@@ -658,26 +715,43 @@ Le cahier des charges fonctionnel de RESBIM est défini autour des fonctions sui
 \end{itemize}
 
 \section{Extension du besoin vers la supervision technique}
-Au-delà du traitement des réservations, le PFE explore une extension de la maquette BIM vers la supervision technique. Les bâtiments techniques, comme les Data Centers, contiennent des équipements sensibles : baies serveurs, tableaux électriques, équipements CVC, sprinklers et équipements de sécurité. La possibilité de connecter ces objets BIM à des données issues d'un ESP32 permet d'utiliser Revit comme support de visualisation des états techniques.
+Au-delà du traitement des réservations, le PFE explore une extension de la maquette BIM vers la supervision technique. Cette extension constitue un second axe complémentaire au travail RESBIM. Elle cherche à montrer qu'une maquette bien structurée ne doit pas rester un simple support de conception et de coordination, mais qu'elle peut aussi évoluer vers un support de visualisation, de suivi et d'aide à la décision.
 
-Cette extension ne remplace pas le travail RESBIM. Elle constitue un second axe complémentaire qui montre comment une maquette structurée peut évoluer vers un support de supervision dynamique.
+\subsection{Limites d'une maquette BIM statique}
+Une maquette BIM, même correctement modélisée et coordonnée, reste limitée si elle est utilisée uniquement comme support graphique ou documentaire. Dans les bâtiments techniques, les besoins d'exploitation dépassent la simple représentation géométrique. Les responsables techniques ont également besoin de suivre l'état réel des équipements, de repérer rapidement une anomalie et de relier une alerte à son emplacement dans le bâtiment.
+
+\subsection{Intérêt d'une intégration BIM--IoT}
+L'intégration BIM--IoT permet de relier des objets BIM à des données issues du terrain ou d'une chaîne de supervision. Ce couplage ouvre la voie à une lecture dynamique de la maquette, dans laquelle les équipements peuvent être associés à des mesures, des statuts, des événements et des alarmes. Dans cette logique, Revit ne sert plus seulement à modéliser, mais aussi à contextualiser l'information technique dans un environnement spatial cohérent.
+
+\subsection{Besoin de supervision pour les bâtiments techniques}
+Les bâtiments techniques, comme les Data Centers, contiennent des équipements sensibles : baies serveurs, tableaux électriques, équipements CVC, sprinklers et équipements de sécurité. Le suivi de variables comme la température, l'humidité, l'alimentation électrique ou les états d'alarme devient alors essentiel. La possibilité de connecter ces objets BIM à des données issues d'un ESP32, transmises via MQTT et orchestrées par Node-RED, permet d'utiliser la maquette comme support de supervision technique et de visualisation des états en temps quasi réel.
 
 \section{Problématique finale}
 La problématique du PFE peut être formulée comme suit :
 
 \importantbox{
-\textbf{Comment concevoir et développer une solution BIM intégrée permettant d'automatiser la génération, le dimensionnement, la vérification et le suivi des réservations structurelles, tout en réduisant le temps de traitement et en améliorant la traçabilité dans une maquette Revit multidisciplinaire ?}
+\textbf{Comment concevoir et développer une solution BIM intégrée permettant, d'une part, d'automatiser la génération, le dimensionnement, la vérification et le suivi des réservations structurelles afin de réduire le temps de traitement et d'améliorer la traçabilité dans une maquette Revit multidisciplinaire, et, d'autre part, d'étendre cette maquette vers une logique BIM--IoT capable de relier les objets techniques à des données terrain pour la supervision dynamique des bâtiments ?}
 }
 
 \section{Objectifs spécifiques}
-Les objectifs spécifiques sont :
+\subsection{Objectifs spécifiques liés à RESBIM}
+Les objectifs spécifiques du premier axe sont les suivants :
 \begin{itemize}[leftmargin=1.2cm]
     \item analyser le processus existant de traitement des réservations ;
     \item participer à la modélisation et à la préparation de la maquette C2R ;
     \item développer un plugin Revit structuré et utilisable par la cellule BIM \& Synthèse ;
     \item intégrer les règles métier de dimensionnement, placement, fusion, vérification et suivi ;
-    \item mesurer les gains à travers des indicateurs issus d'un fichier Excel ;
-    \item développer une chaîne BIM--IoT basée sur ESP32, MQTT, Node-RED et Revit ;
+    \item améliorer la traçabilité, la visualisation et l'exploitation des réservations dans la maquette ;
+    \item mesurer les gains à travers des indicateurs issus d'un fichier Excel.
+\end{itemize}
+
+\subsection{Objectifs spécifiques liés à l'intégration BIM--IoT}
+Les objectifs spécifiques du second axe sont les suivants :
+\begin{itemize}[leftmargin=1.2cm]
+    \item définir une chaîne BIM--IoT basée sur ESP32, MQTT, Node-RED et Revit ;
+    \item relier les objets techniques de la maquette à des données issues du terrain ou simulées ;
+    \item permettre la visualisation des états, événements et alertes dans un contexte spatial BIM cohérent ;
+    \item explorer l'usage de la maquette comme support de supervision dynamique pour les bâtiments techniques ;
     \item valoriser le projet dans une logique d'innovation interne.
 \end{itemize}
 
@@ -723,7 +797,7 @@ Les réservations peuvent être :
 \section{Clash detection et synthèse technique}
 La \textit{clash detection} permet d'identifier les conflits géométriques entre éléments de différentes disciplines. Des outils comme Navisworks ou Revit permettent de repérer les collisions entre réseaux techniques et éléments structurels. Cependant, la détection du conflit ne suffit pas : il faut ensuite transformer cette information en réservation exploitable, correctement dimensionnée et suivie.
 
-\insertfigure[0.82\textwidth]{pics/clash_detection_mep_structure.png}{Principe de détection des conflits MEP--Structure}
+
 
 \section{Automatisation BIM sous Revit}
 L'automatisation BIM consiste à déléguer à un script ou à un plugin les tâches répétitives et normalisables. Dans le cadre de ce PFE, elle concerne principalement le traitement des réservations structurelles.
@@ -731,7 +805,7 @@ L'automatisation BIM consiste à déléguer à un script ou à un plugin les tâ
 Dynamo permet de prototyper rapidement des logiques de traitement visuel. L'API Revit permet d'accéder aux éléments, familles, paramètres, vues et transactions. Le développement en C\# permet de construire un plugin intégré à l'interface Revit, plus robuste, plus maintenable et mieux adapté à une utilisation métier.
 
 \insertfigure[0.82\textwidth]{pics/automatisation_revit.png}{Principe d'automatisation sous Revit}
-\insertfigure[0.82\textwidth]{pics/dynamo_api_revit.png}{Dynamo et API Revit dans une démarche d'automatisation}
+\insertfigure[0.82\textwidth]{pics/dev_revit_dynamo_exemple.png}{Dynamo et API Revit dans une démarche d'automatisation}
 
 \section{BIM--IoT et supervision technique}
 L'intégration BIM--IoT consiste à relier des objets BIM à des données issues de capteurs ou d'équipements connectés. Cette approche permet de visualiser des mesures, états ou alarmes directement dans le contexte spatial de la maquette.
@@ -1494,8 +1568,8 @@ Sur le plan organisationnel, RESBIM permet :
     \item de capitaliser les règles métier dans un outil réutilisable.
 \end{itemize}
 
-\section{Valeur ajoutée pour VINCI Energies / CEGELEC}
-Pour VINCI Energies et CEGELEC, le projet apporte :
+\section{Valeur ajoutée pour VINCI Energies Building Solutions}
+Pour VINCI Energies Building Solutions, le projet apporte :
 \begin{itemize}[leftmargin=1.2cm]
     \item un gain de temps sur une tâche de coordination répétitive ;
     \item une amélioration de la qualité des livrables BIM ;
@@ -1672,3 +1746,4 @@ public class GenerateReservationsCommand : IExternalCommand
 \end{lstlisting}
 
 \end{document}
+
