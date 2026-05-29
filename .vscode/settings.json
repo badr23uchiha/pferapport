@@ -1,0 +1,13 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/c:\\Users\\badr\\OneDrive\\Bureau\\PFE\\Rapport latex\\rapport pfe.aux": true,
+        "**/c:\\Users\\badr\\OneDrive\\Bureau\\PFE\\Rapport latex\\rapport pfe.log": true,
+        "**/c:\\Users\\badr\\OneDrive\\Bureau\\PFE\\Rapport latex\\rapport pfe.gz": true,
+        "**/c:\\Users\\badr\\OneDrive\\Bureau\\PFE\\Rapport latex\\rapport pfe.out": true
+    }
+}
