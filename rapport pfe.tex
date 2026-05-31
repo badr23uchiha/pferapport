@@ -200,7 +200,7 @@
 \begin{minipage}[t]{0.25\textwidth}
     \vspace{0pt}
     \centering
-    \includegraphics[width=4cm]{pics/um5_rabat.png}
+    \includegraphics[width=3.7cm]{pics/um5_rabat.png}
 \end{minipage}
 
 \vspace{1.8cm}
@@ -332,9 +332,15 @@ KPI & Key Performance Indicator \\
 ESP32 & Microcontrôleur Wi-Fi/Bluetooth utilisé pour la communication IoT \\
 \end{longtable}
 
+\clearpage
 \tableofcontents
+\thispagestyle{empty}
+\clearpage
 \listoffigures
+\thispagestyle{empty}
+\clearpage
 \listoftables
+\thispagestyle{empty}
 
 \clearpage
 \pagenumbering{arabic}
@@ -771,8 +777,8 @@ Le Building Information Modeling est une méthode de travail fondée sur une maq
 
 Dans un projet technique, le BIM permet de centraliser l'information, de coordonner les disciplines et de réduire les incohérences entre livrables. Il devient un support de conception, de synthèse, de contrôle et progressivement d'exploitation.
 
-\insertfigure[0.78\textwidth]{pics/cycle_vie_bim.png}{Cycle de vie BIM}
-\insertfigure[0.78\textwidth]{pics/dimensions_bim.png}{Dimensions du BIM}
+\insertfigure[0.78\textwidth]{pics/cycle_vie_bim.png}{Niveaux de maturité BIM}
+
 
 \section{Coordination BIM multidisciplinaire}
 La coordination BIM multidisciplinaire consiste à organiser la cohabitation entre les maquettes architecture, structure, fluides, CFO, CFA et autres disciplines. Elle permet de vérifier la cohérence géométrique et informationnelle entre les lots avant la phase chantier.
@@ -818,7 +824,7 @@ Dans ce PFE, l'intégration repose sur :
     \item Revit et le plugin C\# pour la mise à jour des paramètres et la visualisation.
 \end{itemize}
 
-\insertfigure[0.82\textwidth]{pics/architecture_generale_bim_iot.png}{Architecture générale BIM--IoT}
+\insertfigure[1.14\textwidth]{pics/architecture_generale_bim_iot2.png}{Architecture générale BIM--IoT}
 
 \section{Synthèse de l'état de l'art}
 \begin{table}[H]
@@ -852,15 +858,43 @@ L'état de l'art montre que les outils BIM et les technologies d'automatisation 
 \chapter{Contribution à la modélisation BIM du projet C2R}
 
 \section{Introduction}
-Ce chapitre présente la contribution réalisée sur la modélisation BIM du projet C2R. Cette partie est indépendante du développement RESBIM et de l'intégration BIM--IoT. Elle correspond à un travail de production et d'organisation des maquettes qui a permis de mieux comprendre les contraintes réelles de coordination.
+Ce chapitre présente la contribution réalisée sur la modélisation BIM du projet C2R. Cette partie est distincte du développement de RESBIM et de l'intégration BIM--IoT. Elle correspond à un travail de production, d'organisation et de lecture des maquettes disciplinaires, mené dans une logique de coordination conforme aux conventions BIM du projet.
 
+L'objectif est de présenter de manière claire les maquettes modélisées à partir des plans 2D préparés du projet, en distinguant les disciplines principales et leur rôle dans la synthèse BIM.
+
+\begin{samepage}
 \section{Présentation du projet C2R}
-Le projet C2R constitue le cas support principal de la contribution BIM. Il regroupe plusieurs disciplines : architecture, structure, fluides, CFO, CFA et synthèse. Cette organisation permet d'observer les interactions entre les lots et d'identifier les zones où la coordination est nécessaire.
+Le projet C2R constitue le cas support principal de la contribution BIM. Il regroupe plusieurs disciplines : architecture, structure, MEP et synthèse. La maquette MEP est elle-même décomposée en sous-disciplines afin de respecter une organisation claire des responsabilités, des objets modélisés et des contrôles de coordination.
 
-\insertfigure[0.92\textwidth]{pics/vue_3d_c2r.png}{Vue 3D générale du projet C2R}
+\insertfigure[0.8\textwidth]{pics/vue_3d_c2r2.png}{Vue 3D générale du projet C2R}
+\end{samepage}
 
-\section{Organisation des maquettes par discipline}
-Le projet est organisé autour de maquettes disciplinaires liées dans un environnement de synthèse. Cette séparation permet de préserver les responsabilités par lot tout en permettant une coordination globale.
+\section{Organisation générale des maquettes}
+Le projet est organisé autour de maquettes disciplinaires liées dans un environnement de synthèse. Cette séparation permet de conserver une lecture claire des différents lots tout en assurant une coordination globale cohérente.
+
+Dans ce cadre, la modélisation a été structurée autour des ensembles suivants :
+\begin{itemize}[leftmargin=1.2cm]
+    \item une maquette architecture ;
+    \item une maquette structure ;
+    \item une maquette MEP intégrant les réseaux CFO/CFA, y compris les chemins de câbles, ainsi que les réseaux fluides ;
+    \item une maquette de synthèse destinée au regroupement des disciplines.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{Structuration générale des maquettes du projet C2R}
+\begin{tabularx}{0.95\textwidth}{|L{3.6cm}|L{3.6cm}|Y|}
+\hline
+\textbf{Ensemble} & \textbf{Sous-ensemble} & \textbf{Rôle principal} \\
+\hline
+Maquette ARC & Architecture & Référence spatiale, organisation des espaces, niveaux, trames, murs, portes et locaux. \\
+\hline
+Maquette STR & Structure & Supports porteurs, voiles, dalles, poutres, poteaux et éléments traversés par les réseaux. \\
+\hline
+Maquette MEP & CFO / CFA / Fluides / Synthèse & Modélisation et lecture coordonnée des réseaux techniques, y compris les vues de synthèse dans la même maquette MEP. \\
+\hline
+\end{tabularx}
+\end{table}
 
 \begin{table}[H]
 \centering
@@ -873,63 +907,91 @@ Architecture & Référence spatiale : locaux, murs, portes, fenêtres, sols et o
 \hline
 Structure & Support porteur : voiles, dalles, poutres, poteaux et éléments concernés par les réservations. \\
 \hline
-Fluides & Réseaux techniques : canalisations, gaines, CVC, plomberie et passages techniques. \\
+MEP -- CFO/CFA & Réseaux électriques de courant fort et courant faible, y compris les chemins de câbles et les équipements associés. \\
 \hline
-CFO & Réseaux courant fort : chemins de câbles, tableaux, passages électriques et équipements associés. \\
+MEP -- Fluides & Réseaux CVC, plomberie, alimentation, évacuation, hydraulique et PCI. \\
 \hline
-CFA & Réseaux courant faible : communication, sécurité, détection, chemins de câbles et équipements faibles. \\
-\hline
-Synthèse & Regroupement des liens pour la coordination multidisciplinaire et la détection des conflits. \\
+MEP -- Synthèse & Lecture multidisciplinaire et coordination des interfaces dans la même maquette MEP. \\
 \hline
 \end{tabularx}
 \end{table}
 
-\insertfigure[0.92\textwidth]{pics/organisation_liens_revit_c2r.png}{Organisation des liens Revit du projet C2R}
 
-\section{Modélisation architecture}
-La modélisation architecture comprend les éléments servant de référence spatiale : murs, portes, fenêtres, sols, niveaux et locaux. Cette maquette permet de comprendre la configuration générale du bâtiment, la répartition des espaces et les zones techniques.
+
+\section{Maquette architecture (ARC)}
+La maquette architecture constitue la référence spatiale du projet. Elle contient les murs, cloisons, portes, fenêtres, niveaux, locaux, circulations et limites générales du bâtiment. Elle a été modélisée à partir des plans 2D préparés du projet afin de disposer d'une base architecturale claire pour les autres disciplines.
+
+Dans le projet C2R, cette maquette sert principalement à :
+\begin{itemize}[leftmargin=1.2cm]
+    \item définir l'organisation spatiale du bâtiment ;
+    \item localiser les zones techniques ;
+    \item fournir une base de lecture commune aux maquettes structure et MEP.
+\end{itemize}
 
 \insertfigure[0.86\textwidth]{pics/maquette_architecture_c2r.png}{Maquette architecture du projet C2R}
-\insertfigure[0.86\textwidth]{pics/niveau_architecture_c2r.png}{Exemple de niveau architectural du projet C2R}
 
-\section{Modélisation structure}
-La modélisation structure concerne les éléments porteurs : voiles, dalles, poteaux, poutres et niveaux structurels. Cette discipline est centrale pour le sujet RESBIM, car les réservations sont générées dans les voiles et les dalles lorsque les réseaux MEP les traversent.
+\section{Maquette structure (STR)}
+La maquette structure regroupe les éléments porteurs du projet : voiles, dalles, poutres, poteaux, trémies et niveaux structurels. Elle a été modélisée à partir des plans 2D préparés afin de représenter les supports traversés par les réseaux techniques.
 
-\insertfigure[0.86\textwidth]{pics/maquette_structure_c2r.png}{Maquette structure du projet C2R}
-\insertfigure[0.86\textwidth]{pics/voiles_dalles_c2r.png}{Voiles et dalles concernés par la coordination MEP--Structure}
+Dans le cadre du PFE, cette maquette est particulièrement importante pour :
+\begin{itemize}[leftmargin=1.2cm]
+    \item identifier les supports réellement traversés par les réseaux ;
+    \item qualifier le type de support concerné : voile ou dalle ;
+    \item préparer la logique de réservation exploitée ensuite par RESBIM.
+\end{itemize}
 
-\section{Modélisation fluides}
-La modélisation fluides comprend les canalisations, gaines, réseaux CVC, plomberie et passages techniques. Ces réseaux peuvent générer des réservations circulaires lorsqu'il s'agit de canalisations ou rectangulaires lorsqu'il s'agit de gaines.
+\insertfigure[0.86\textwidth]{pics/maquette_structure_c2r2.png}{Maquette structure du projet C2R}
 
-\insertfigure[0.86\textwidth]{pics/reseaux_fluides_c2r.png}{Réseaux fluides du projet C2R}
-\insertfigure[0.86\textwidth]{pics/passage_canalisation_voile.png}{Exemple de canalisation traversant un voile}
-\insertfigure[0.86\textwidth]{pics/passage_gaine_dalle.png}{Exemple de gaine traversant une dalle}
+\section{Maquette MEP}
+La maquette MEP regroupe les réseaux techniques du projet. Dans le cadre de cette contribution, elle est présentée selon deux grands ensembles : les réseaux CFO/CFA, qui incluent également les chemins de câbles, et les réseaux fluides. Cette organisation permet de garder une lecture simple et cohérente de la modélisation réalisée.
 
-\section{Modélisation CFO}
-La modélisation CFO est intégrée dans ce chapitre, car elle fait partie de la contribution BIM C2R. Elle concerne les réseaux de courant fort : chemins de câbles, tableaux électriques, équipements électriques et passages associés. Les chemins de câbles CFO peuvent générer des besoins de réservations rectangulaires lorsqu'ils traversent des voiles ou dalles.
+\begin{table}[H]
+\centering
+\caption{Structuration de la maquette MEP dans le projet C2R}
+\begin{tabularx}{0.95\textwidth}{|L{3.2cm}|L{4.1cm}|Y|}
+\hline
+\textbf{Sous-discipline} & \textbf{Contenu principal} & \textbf{Rôle dans la coordination} \\
+\hline
+CFO/CFA & Réseaux électriques forts et faibles, équipements, câblages et chemins de câbles. & Vérification de l'implantation électrique et de la compatibilité avec les autres lots. \\
+\hline
+Fluides & Aéraulique, alimentation, évacuation, hydraulique et PCI. & Identification des passages générateurs de réservations circulaires ou rectangulaires. \\
+\hline
+\end{tabularx}
+\end{table}
 
-\insertfigure[0.86\textwidth]{pics/reseaux_cfo_c2r.png}{Réseaux CFO du projet C2R}
-\insertfigure[0.86\textwidth]{pics/chemins_cables_cfo_c2r.png}{Chemins de câbles CFO et coordination avec la structure}
+\subsection{MEP électrique : CFO et CFA}
+Les maquettes CFO et CFA couvrent les réseaux électriques du projet. Elles comprennent les équipements, les départs, les terminaux, les réseaux de sécurité, les réseaux de communication ainsi que les chemins de câbles nécessaires au fonctionnement et à la distribution des installations.
 
-\section{Modélisation CFA}
-La modélisation CFA est également placée dans ce chapitre, séparée de RESBIM et du BIM--IoT. Elle concerne les réseaux de courant faible : communication, sécurité, détection, vidéosurveillance, câblage faible et chemins de câbles CFA. Ces éléments doivent être intégrés à la maquette de synthèse afin de vérifier leurs interfaces avec la structure et les autres lots.
+Dans la modélisation réalisée, cet ensemble couvre principalement :
+\begin{itemize}[leftmargin=1.2cm]
+    \item les distributions électriques fortes et faibles ;
+    \item les chemins de câbles intégrés aux parcours techniques ;
+    \item la lecture des réseaux dans la maquette de synthèse ;
+    \item les zones de cohabitation avec la structure et les réseaux fluides.
+\end{itemize}
+\insertfigure[0.86\textwidth]{pics/reseaux_cfo_cfa_c2r2.png}{Réseaux CFO/CFA du projet C2R}
 
-\insertfigure[0.86\textwidth]{pics/reseaux_cfa_c2r.png}{Réseaux CFA du projet C2R}
-\insertfigure[0.86\textwidth]{pics/chemins_cables_cfa_c2r.png}{Chemins de câbles CFA dans la maquette}
+\subsection{MEP fluides}
+La maquette fluides regroupe les réseaux aérauliques, d'alimentation, d'évacuation, hydrauliques et de protection incendie. Elle a été modélisée à partir des plans 2D préparés afin de représenter les réseaux techniques dans leur configuration spatiale et de faciliter leur intégration dans la synthèse.
 
-\section{Maquette de synthèse}
-La maquette de synthèse regroupe les disciplines afin de contrôler les interfaces entre les lots. Elle permet de visualiser simultanément l'architecture, la structure, les fluides, le CFO et le CFA. Elle constitue l'environnement de coordination principal.
+Dans le cadre du projet C2R, les sous-ensembles suivis sont notamment :
+\begin{itemize}[leftmargin=1.2cm]
+    \item \textbf{AER} : réseaux aérauliques et gaines de ventilation ;
+    \item \textbf{ALIM} : réseaux d'alimentation ;
+    \item \textbf{EVAC} : réseaux d'évacuation ;
+    \item \textbf{HYD} : réseaux hydrauliques et circuits techniques ;
+    \item \textbf{PCI} : protection contre l'incendie.
+\end{itemize}
 
-\insertfigure[0.92\textwidth]{pics/maquette_synthese_c2r.png}{Maquette de synthèse du projet C2R}
-\insertfigure[0.92\textwidth]{pics/vue_multidisciplinaire_c2r.png}{Vue multidisciplinaire ARC/STR/FLU/CFO/CFA}
+\insertfigure[0.86\textwidth]{pics/reseaux_fluides_c2r2.png}{Réseaux fluides du projet C2R}
 
-\section{Préparation des vues et gabarits de contrôle}
-La préparation des vues et gabarits facilite la lecture de la maquette et la vérification des interfaces. Les vues peuvent être organisées par niveau, par discipline, par zone ou par objectif de contrôle.
+\section{Synthèse dans la maquette MEP}
+Dans le cadre de cette contribution, la synthèse n'est pas traitée comme une maquette indépendante supplémentaire. Elle correspond à une lecture coordonnée réalisée dans la maquette MEP, afin de visualiser simultanément l'architecture, la structure et les réseaux techniques.
 
-Les gabarits de vue permettent d'uniformiser l'affichage, de filtrer les catégories, de mettre en évidence les réseaux techniques et d'isoler les zones nécessitant une vérification.
+Cette lecture de synthèse permet d'obtenir une vue globale du projet et de visualiser la cohabitation entre architecture, structure, CFO/CFA et fluides dans un même environnement de travail.
 
-\insertfigure[0.86\textwidth]{pics/gabarit_vue_coordination_c2r.png}{Gabarit de vue de coordination}
-\insertfigure[0.86\textwidth]{pics/vue_controle_multidisciplinaire_c2r.png}{Vue de contrôle multidisciplinaire}
+\insertfigure[0.92\textwidth]{pics/maquette_synthese_c2r2.png}{Maquette de synthèse du projet C2R}
+\insertfigure[0.92\textwidth]{pics/vue_multidisciplinaire_c2r2.png}{Vue multidisciplinaire du projet C2R}
 
 \section{Livrables BIM produits}
 \begin{table}[H]
@@ -943,21 +1005,13 @@ Maquette architecture & Référence spatiale & Coordination des locaux et niveau
 \hline
 Maquette structure & Supports porteurs & Analyse des voiles, dalles et traversées. \\
 \hline
-Maquette fluides & Réseaux techniques & Identification des passages MEP. \\
-\hline
-Maquette CFO & Courant fort & Coordination des chemins de câbles et équipements électriques. \\
-\hline
-Maquette CFA & Courant faible & Coordination des réseaux faibles et chemins de câbles CFA. \\
-\hline
-Maquette synthèse & Regroupement multi-lots & Contrôle global des interfaces. \\
-\hline
-Vues et gabarits & Standardisation visuelle & Vérification rapide par niveau, discipline ou zone. \\
+Maquette MEP & CFO/CFA, fluides et synthèse & Coordination des réseaux techniques et lecture globale des interfaces dans la même maquette. \\
 \hline
 \end{tabularx}
 \end{table}
 
 \section{Conclusion}
-La contribution à la modélisation C2R constitue une partie séparée et importante du PFE. Elle a permis de produire, organiser et contrôler les maquettes architecture, structure, fluides, CFO, CFA et synthèse. Ce travail a aussi fourni un contexte réaliste pour comprendre les besoins de coordination, sans être confondu avec le développement RESBIM ou l'intégration BIM--IoT.
+La contribution à la modélisation C2R constitue une partie séparée et importante du PFE. Elle a permis de modéliser les maquettes architecture et structure, ainsi qu'une maquette MEP intégrant les réseaux CFO/CFA, les fluides et la lecture de synthèse, à partir des plans 2D préparés du projet. Ce travail a fourni une base claire pour la compréhension des interfaces entre disciplines et pour la suite du mémoire consacrée aux réservations structurelles.
 
 % ============================================================
 % CHAPITRE 5
